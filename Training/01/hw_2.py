@@ -1,6 +1,5 @@
 import time
 
-#from unsorted import numbers
 from sorted import numbers
 
 to_find = [
@@ -18,7 +17,22 @@ to_find = [
 
 start = time.time()
 
-
+for num in to_find:
+    found = False
+    left = 0
+    right = len(numbers)
+    while left <= right:
+        idx = (left + right) // 2
+        if numbers[idx] == num:
+            found = True
+            print(f"{num} at #{idx}")
+            break
+        elif numbers[idx] > num:
+            right = idx - 1
+        elif numbers[idx] < num:
+            left = idx + 1
+    if not found:
+        print(f"{num} Not found")
 
 end = time.time()
 
